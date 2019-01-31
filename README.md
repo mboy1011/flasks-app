@@ -10,5 +10,14 @@
 [![Python3](https://www.python.org/static/img/python-logo.png)](https://www.python.org/downloads/)
 [![Flask](http://flask.pocoo.org/static/logo.png)](http://flask.pocoo.org/)
 [![Heroku](https://www3.assets.heroku.com/assets/logo-purple-08fb38cebb99e3aac5202df018eb337c5be74d5214768c90a8198c97420e4201.svg)](https://www.heroku.com/)
+
+## Installation:
+1. Download or Clone this Repository.
+2. Create a Python environment:
+> * <code>python3 -m venv venv</code>
+> * <code>source venv/Scripts/activate</code>
+3. <code>pip3 install -r requirements</code>
+4. Run the App: <code>flask run</code>
+
 ##
 [![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/flasks-app.git)
