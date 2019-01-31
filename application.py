@@ -31,3 +31,10 @@ def insert():
     query = db.execute("INSERT INTO tbl_employee (f_name,l_name,m_name) VALUES (:fn, :ln, :mn)",{"fn":fn,"ln":ln,"mn":mn})
     db.commit()
     return redirect(url_for('index'))
+
+@app.route("/delete", methods=['POST'])
+def delete():
+    did = request.form.get('did');
+    query = db.execute("DELETE FROM tbl_employee WHERE emp_id=:did",{'did':did})
+    db.commit()
+    return redirect(url_for('index'))

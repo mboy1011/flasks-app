@@ -40,14 +40,17 @@
 </div>
  <!-- Modal Structure -->
 <div id="delE" class="modal">
+    <form action="{{ url_for('delete') }}" method="post">
     <div class="modal-content">
         <h3 class="red-text"><i class="medium material-icons red-text left">delete</i>Delete</h3>
+        <input id="dfn" name="did" type="number" class="validate" hidden>
         <p>Are you sure you want to delete this employee?</p>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-white red white-text btn-flat">Yes</a>
+        <button class="btn waves-effect waves-white red white-text btn-flat">Yes</button>
         <a href="#!" class="modal-close waves-effect waves-white green white-text btn-flat">No</a>
     </div>
+    </form>
 </div>
  <!-- Modal Structure -->
  <div id="upE" class="modal">
@@ -106,8 +109,16 @@
         let ins2 = M.Carousel.init(car);
     });
     let btnUp = document.querySelectorAll('.btnUp');
+    let btnDel = document.querySelectorAll('.btnDel');
     for (let i = 0; i < btnUp.length; i++) {
         btnUp[i].addEventListener('click',up)
+    }
+    for (let i = 0; i < btnDel.length; i++) {
+        btnDel[i].addEventListener('click',del)
+    }
+    function del(e){
+        let dfn = document.querySelector("#dfn");
+        dfn.value=parseInt(this.dataset.did);
     }
     function up(e){
         let fn = document.querySelector("#fn");
