@@ -1,9 +1,10 @@
 # FLASKS-APP
 <p><b>FLASKS-APP</b> this my first Flask App </p>
+
 ## Prerequisite:
-> * Basic knowledge to Programming (Python)
-> * Basic knowledge to RDBMS or SQL Database (MySQL, PostgreSQL)
-> * Basic knowledge to Web (HTML, JS, CSS)
+> * Basic knowledge to Programming (Python).
+> * Basic knowledge to RDBMS or SQL Database (MySQL, PostgreSQL).
+> * Basic knowledge to Web (HTML, JS, CSS).
 
 ## Requirements:
 [![Python3](https://www.python.org/static/img/python-logo.png)](https://www.python.org/downloads/)
