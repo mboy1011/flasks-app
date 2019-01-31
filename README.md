@@ -18,6 +18,23 @@
 > * <code>source venv/Scripts/activate</code>
 3. <code>pip3 install -r requirements</code>
 4. Run the App: <code>flask run</code>
+5. Create Database on Heroku Postgres: Copy this SQL Code 
+    <code>
+    CREATE TABLE tbl_employee (
+    emp_id SERIAL NOT NULL,
+    f_name VARCHAR NOT NULL,
+    l_name VARCHAR NOT NULL,
+    m_name VARCHAR NOT NULL,
+    added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE TABLE tbl_users(
+    id SERIAL NOT NULL,
+    emp_id INTEGER NOT NULL,
+    username VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    </code>
 
 ##
 [![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/flasks-app.git)

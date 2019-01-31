@@ -1,7 +1,6 @@
 import os
 
-from flask import Flask
-from flask import render_template,request,session
+from flask import Flask,render_template,request,session,request,redirect,url_for
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
@@ -23,3 +22,12 @@ def about():
 @app.route("/login")
 def login():
     return render_template('login.html')
+
+@app.route("/insert", methods=['POST'])
+def insert():
+    fn = request.form.get("ifn")
+    ln = request.form.get("iln")
+    mn = request.form.get("imn")
+    query = db.execute("INSERT INTO tbl_employee (f_name,l_name,m_name) VALUES (:fn, :ln, :mn)",{"fn":fn,"ln":ln,"mn":mn})
+    db.commit()
+    return redirect(url_for('index'))
