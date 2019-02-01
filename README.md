@@ -17,12 +17,14 @@
 > * <code>python3 -m venv venv</code>
 > * <code>source venv/Scripts/activate</code>
 3. Install Python requirements <code>pip3 install -r requirements</code>
-4. Export the variable of your database url provided by Heroku Postgres: <code>export DATASEBASE_URL=url
+4. Export the variable of your database url provided by Heroku Postgres: 
+> * <code>export DATASEBASE_URL=url</code>
 5. Export the flask environment and app: 
-    <code>export FLASK_APP=application.py</code>
-    <code>export FLASK_ENV=development</code>
-6. Create Database on Heroku Postgres: Copy this SQL Code 
-    <code>
+> * <code>export FLASK_APP=application.py</code>
+> * <code>export FLASK_ENV=development</code>
+6. Create Database on Heroku Postgres: 
+> * Copy this SQL Code 
+'    <code>
     CREATE TABLE tbl_employee (
     emp_id SERIAL NOT NULL,
     f_name VARCHAR NOT NULL,
@@ -40,6 +42,7 @@
     added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     </code>
+'
 7. Run the App: <code>flask run</code>
 
 ##
