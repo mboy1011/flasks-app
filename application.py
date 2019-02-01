@@ -12,7 +12,7 @@ db = scoped_session(sessionmaker(bind=engine))
 @app.route("/")
 @app.route("/home")
 def index():
-    query = db.execute("SELECT * FROM tbl_employee").fetchall()
+    query = db.execute("SELECT * FROM tbl_employee ORDER BY emp_id ASC").fetchall()
     return render_template('index.html',query=query)
 
 @app.route("/about")
@@ -34,7 +34,18 @@ def insert():
 
 @app.route("/delete", methods=['POST'])
 def delete():
-    did = request.form.get('did');
+    did = request.form.get('did')
     query = db.execute("DELETE FROM tbl_employee WHERE emp_id=:did",{'did':did})
     db.commit()
     return redirect(url_for('index'))
+
+@app.route("/update", methods=['POST'])
+def update():
+    uid = request.form.get('uid')
+    ufn = request.form.get('fn')
+    uln = request.form.get('ln')
+    umn = request.form.get('mn')
+    query = db.execute("UPDATE tbl_employee SET f_name=:ufn, m_name=:umn, l_name=:uln WHERE emp_id=:uid",{"ufn": ufn,"uln": uln,"umn": umn,"uid": uid})
+    db.commit()
+    return redirect(url_for('index'))
+

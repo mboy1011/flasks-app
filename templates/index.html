@@ -22,9 +22,11 @@
           </tr>
         </thead>
         <tbody>
-         {% for data in query %}
+        {% set count = namespace(i=1) %}
+        {% for data in query %}
          <tr>
-             <td>{{ data.emp_id }}</td>
+             <td>{{ count.i }}</td>
+                {% set count.i = count.i + 1 %}
              <td>{{ data.f_name }}</td>
              <td>{{ data.l_name }}</td>
              <td>{{ data.m_name }}</td>
@@ -54,25 +56,28 @@
 </div>
  <!-- Modal Structure -->
  <div id="upE" class="modal">
+    <form action="{{ url_for('update') }}" method="post">
     <div class="modal-content">
         <h3 class="orange-text"><i class="medium material-icons left orange-text">account_circle</i>Employee</h3>
         <div class="input-field col s6">
-            <input id="fn" type="text" class="validate">
+            <input id="uid" name="uid" type="number" class="validate" hidden>
+            <input id="fn" name="fn" type="text" class="validate">
             <label for="fn">First Name</label>
         </div>
         <div class="input-field col s6">
-            <input id="mn" type="text" class="validate">
+            <input id="mn" name="mn" type="text" class="validate">
             <label for="mn">Middle Name</label>
         </div>
         <div class="input-field col s6">
-            <input id="ln" type="text" class="validate">
+            <input id="ln" name="ln" type="text" class="validate">
             <label for="ln">Last Name</label>
         </div>
     </div>
     <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-white orange white-text btn-flat">Update</a>
+            <button class="btn waves-effect waves-white orange white-text btn-flat">Update</button>
             <a href="#!" class="modal-close waves-effect waves-white green white-text btn-flat">Cancel</a>
     </div>
+    </form>
 </div>
 <!-- Modal Structure -->
 <div id="inE" class="modal">
@@ -121,12 +126,14 @@
         dfn.value=parseInt(this.dataset.did);
     }
     function up(e){
+        let uid = document.querySelector("#uid");
         let fn = document.querySelector("#fn");
         let ln = document.querySelector("#ln");
         let mn = document.querySelector("#mn");
         fn.value=this.dataset.fn;
         ln.value=this.dataset.ln;
         mn.value=this.dataset.mn;
+        uid.value=parseInt(this.dataset.uid);
         M.updateTextFields();
     }
 </script>
