@@ -1,5 +1,5 @@
 # FLASKS-APP
-<p><b>FLASKS-APP</b> is a simple web app project using Python3, PostgreSQL, Flask, and Heroku as a cloud server. </p>
+<p><b>FLASKS-APP</b> is a simple web app project using Python3, PostgreSQL, Flask, MaterializeCSS and Heroku as a cloud server. </p>
 
 ## Prerequisite:
 > * Basic knowledge to Programming (Python).
@@ -16,9 +16,12 @@
 2. Create a Python environment:
 > * <code>python3 -m venv venv</code>
 > * <code>source venv/Scripts/activate</code>
-3. <code>pip3 install -r requirements</code>
-4. Run the App: <code>flask run</code>
-5. Create Database on Heroku Postgres: Copy this SQL Code 
+3. Install Python requirements <code>pip3 install -r requirements</code>
+4. Export the variable of your database url provided by Heroku Postgres: <code>export DATASEBASE_URL=url
+5. Export the flask environment and app: 
+    <code>export FLASK_APP=application.py</code>
+    <code>export FLASK_ENV=development</code>
+6. Create Database on Heroku Postgres: Copy this SQL Code 
     <code>
     CREATE TABLE tbl_employee (
     emp_id SERIAL NOT NULL,
@@ -27,6 +30,8 @@
     m_name VARCHAR NOT NULL,
     added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
+    </code>
+    <code>
     CREATE TABLE tbl_users(
     id SERIAL NOT NULL,
     emp_id INTEGER NOT NULL,
@@ -35,6 +40,7 @@
     added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     </code>
+7. Run the App: <code>flask run</code>
 
 ##
 [![Compatibility](https://img.shields.io/badge/python-3-brightgreen.svg)](https://github.com/mboy1011/flasks-app.git)
